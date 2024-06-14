@@ -70,8 +70,8 @@ include_source=0 # Include source[x] in the opt.src subsystem and not just patch
 useautodir=1 # Enable or disable the auto_dir run
 
 # vendor & contact information to be added in relnotes
-pkgedby="Tom G. Christensen"
-email="irixpkg@jupiterrise.com"
+pkgedby="DirtPiper"
+email="dirtpiper@gmail.com"
 
 # ver_width controls the width of the pkgversion numbers created
 # do *not* change this blindly
@@ -128,12 +128,12 @@ declare -a opfiles # Files that should have an ops associated
 declare -a opscript # Ops to associate with opfiles
 
 #override defaults
-pkgprefix=tgc_
+pkgprefix=haterware_
 pkgname=$pkgprefix$topdir
 
 os=irix`${__uname} -r`
 _os=$(${__uname} -sr|${__sed} -e 's/ //g' -e 's/\.//g' -e 's/IRIX64/IRIX/g'|${__tr} '[A-Z]' '[a-z]')
-cpu=mips3
+cpu=mips1
 
 configure_args=(--prefix=$prefix --mandir=${prefix}/${_mandir} --infodir=${prefix}/${_infodir})
 
@@ -142,7 +142,7 @@ META_CLEAN="$topdir.spec $topdir.idb files.tmp ${depends##*/}_auto ${depends##*/
 # Host specific configuration
 [ -r $buildpkgscripts/config.$($HOSTNAME -s).irix ] && . $buildpkgscripts/config.$($HOSTNAME -s).irix
 
-distfile='$topdir-$version-$pkgver.tgc-$os-$cpu-$pkgdirdesig.tardist'
+distfile='$topdir-$version-$pkgver.haterware-$os-$cpu-$pkgdirdesig.tardist'
 
 #####################################################
 # Internal helper functions
